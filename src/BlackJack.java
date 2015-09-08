@@ -27,7 +27,7 @@
  		Hand userCards = new Hand(100);	// all cards delt to the user
  		Hand dealCards = new Hand();	// all cards delt to the dealer
  		
- 		int number_of_decks_in_shoe = 5;
+ 		int number_of_decks_in_shoe = 100;
  		Shoe shoe = new Shoe (number_of_decks_in_shoe);
  		
  		System.out.println ("\t\tBlack Jack Sim");

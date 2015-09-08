@@ -10,7 +10,7 @@ public class Shoe {
 	public Shoe(int number_of_decks) {
 		// create n decks and put them into the shoe
 		for (int i = 0; i < number_of_decks; i++) {
-			DeckOfCards deck = new DeckOfCards();
+			Deck deck = new Deck();
 
 			while (deck.hasMore ()) {
 				shoe.add (deck.dealCard());
