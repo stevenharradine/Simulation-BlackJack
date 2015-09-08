@@ -45,7 +45,7 @@ public class Shoe {
 	// deal one Card
 	public Card dealCard() {
 		if ( currentCard < shoe.size() )
-			return shoe.get (currentCard);
+			return shoe.get (currentCard++);
 		else        
 			return null; // return null to indicate that all Cards were dealt
 	}
