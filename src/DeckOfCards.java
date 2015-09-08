@@ -46,5 +46,5 @@ public DeckOfCards() {
 			return deck[ currentCard++ ]; // return current Card in array
 		else        
 			return null; // return null to indicate that all Cards were dealt
-	} // end method dealCard
-} // end class DeckOfCards
+	}
+}
