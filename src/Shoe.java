@@ -10,19 +10,20 @@ public class Shoe {
 	public Shoe(int number_of_decks) {
 		// create n decks and put them into the shoe
 		for (int i = 0; i < number_of_decks; i++) {
-			DeckOfCards deck = new DeckOfCards();	// the deck of cards
+			DeckOfCards deck = new DeckOfCards();
 
 			while (deck.hasMore ()) {
 				shoe.add (deck.dealCard());
 			}
 		}
 
+		currentCard = 0; // set currentCard so first Card dealt is deck[ 0 ]
+		randomNumbers = new Random(); // create random number generator
+
+		this.shuffle();
 		for (int i = 0; i < shoe.size(); i++) {
 			System.out.println (shoe.get(i));
 		}
-
-		currentCard = 0; // set currentCard so first Card dealt is deck[ 0 ]
-		randomNumbers = new Random(); // create random number generator
 	}
 
 	// shuffle deck of Cards with one-pass algorithm
@@ -31,14 +32,14 @@ public class Shoe {
 		currentCard = 0; // reinitialize currentCard
 
 		// for each Card, pick another random Card and swap them
-/*		for ( int first = 0; first < deck.length; first++ ) {
+		for ( int first = 0; first < shoe.size(); first++ ) {
 			// select a random number between 0 and 51 
-			int second =  randomNumbers.nextInt( NUMBER_OF_CARDS );
+			int second =  randomNumbers.nextInt( shoe.size() );
 			// swap current Card with randomly selected Card
-			Card temp = deck[ first ];     
-			deck[ first ] = deck[ second ];
-			deck[ second ] = temp;         
-		}*/ // end for
+			Card temp = shoe.get(first);     
+			shoe.set (first, shoe.get (second) );
+			shoe.set (second, temp);
+		}
 	}
 
 	// deal one Card
