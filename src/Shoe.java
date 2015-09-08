@@ -19,11 +19,6 @@ public class Shoe {
 
 		currentCard = 0; // set currentCard so first Card dealt is deck[ 0 ]
 		randomNumbers = new Random(); // create random number generator
-
-		this.shuffle();
-		for (int i = 0; i < shoe.size(); i++) {
-			System.out.println (shoe.get(i));
-		}
 	}
 
 	// shuffle deck of Cards with one-pass algorithm
