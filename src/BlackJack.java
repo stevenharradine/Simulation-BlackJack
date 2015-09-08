@@ -27,12 +27,13 @@
  		Hand userCards = new Hand(100);	// all cards delt to the user
  		Hand dealCards = new Hand();	// all cards delt to the dealer
  		
- 		DeckOfCards deck = new DeckOfCards();	// the deck of cards
+ 		int number_of_decks_in_shoe = 5;
+ 		Shoe shoe = new Shoe (number_of_decks_in_shoe);
  		
  		System.out.println ("\t\tBlack Jack Sim");
  		System.out.println ("\t\t~~~~~~~~~~~~~~");
  		
- 		deck.shuffle();	// shuffle the deck
+ 		shoe.shuffle();	// shuffle the deck
  		
  		// print table header
  		System.out.println ("My Hand\t\tDealers Hand");
@@ -40,9 +41,9 @@
  		System.out.println ("");
 
 		// hide the first card in the deck
-		deck.dealCard();
+		shoe.dealCard();
 		
-		for (int a = 0; a < 5; a++) {
+		for (int a = 0; a < number_of_decks_in_shoe * 5; a++) {
 				// place bet
 				if (userCards.getCount() > 10)
 					userCards.bet (15);
@@ -53,21 +54,21 @@
 				
 				
 				// deal user and dealer 1 card
-		 		userCards.addCard(deck.dealCard());
-		 		dealCards.addCard(deck.dealCard());
+		 		userCards.addCard(shoe.dealCard());
+		 		dealCards.addCard(shoe.dealCard());
 		 		
 		 		// display table entry
 				System.out.println (userCards.getLastCard() + "\t" + dealCards.getLastCard());
 				
 				// deal user cards
 				do {
-					userCards.addCard (deck.dealCard());
+					userCards.addCard (shoe.dealCard());
 					System.out.println (userCards.getLastCard());
 				} while (userCards.getHandValue() < 17);
 
 				// deal dealer cards
 				do {
-					dealCards.addCard (deck.dealCard());
+					dealCards.addCard (shoe.dealCard());
 					System.out.println ("\t\t" + dealCards.getLastCard());
 				} while (dealCards.getHandValue() < 17);
 
