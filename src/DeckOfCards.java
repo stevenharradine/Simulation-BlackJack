@@ -47,4 +47,8 @@ public DeckOfCards() {
 		else        
 			return null; // return null to indicate that all Cards were dealt
 	}
+
+	public boolean hasMore () {
+		return currentCard < deck.length;
+	}
 }
