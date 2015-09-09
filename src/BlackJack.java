@@ -27,8 +27,9 @@
  		Hand userCards = new Hand(100);	// all cards delt to the user
  		Hand dealCards = new Hand();	// all cards delt to the dealer
  		
- 		int number_of_decks_in_shoe = 100;
+ 		int number_of_decks_in_shoe = 10;
  		Shoe shoe = new Shoe (number_of_decks_in_shoe);
+ 		int number_of_hands_to_play = 500;
  		
  		System.out.println ("\t\tBlack Jack Sim");
  		System.out.println ("\t\t~~~~~~~~~~~~~~");
@@ -43,48 +44,53 @@
 		// hide the first card in the deck
 		shoe.dealCard();
 		
-		for (int a = 0; a < number_of_decks_in_shoe * 5; a++) {
-				// place bet
-				if (userCards.getCount() > 10)
-					userCards.bet (15);
-				else if (userCards.getCount() > 0)
-					userCards.bet (10);
-				else
-					userCards.bet (5);
-				
-				
-				// deal user and dealer 1 card
-		 		userCards.addCard(shoe.dealCard());
-		 		dealCards.addCard(shoe.dealCard());
-		 		
-		 		// display table entry
-				System.out.println (userCards.getLastCard() + "\t" + dealCards.getLastCard());
-				
-				// deal user cards
-				do {
-					userCards.addCard (shoe.dealCard());
-					System.out.println (userCards.getLastCard());
-				} while (userCards.getHandValue() < 17);
+		for (int a = 0; a < number_of_hands_to_play; a++) {
+			// place bet
+			if (userCards.getCount() > 10)
+				userCards.bet (15);
+			else if (userCards.getCount() > 0)
+				userCards.bet (10);
+			else
+				userCards.bet (5);
+			
+			
+			// deal user and dealer 1 card
+	 		userCards.addCard(shoe.dealCard());
+	 		dealCards.addCard(shoe.dealCard());
+	 		
+	 		// display table entry
+			System.out.println (userCards.getLastCard() + "\t" + dealCards.getLastCard());
+			
+			// deal user cards
+			do {
+				userCards.addCard (shoe.dealCard());
+				System.out.println (userCards.getLastCard());
+			} while (userCards.getHandValue() < 17);
 
-				// deal dealer cards
-				do {
-					dealCards.addCard (shoe.dealCard());
-					System.out.println ("\t\t" + dealCards.getLastCard());
-				} while (dealCards.getHandValue() < 17);
+			// deal dealer cards
+			do {
+				dealCards.addCard (shoe.dealCard());
+				System.out.println ("\t\t" + dealCards.getLastCard());
+			} while (dealCards.getHandValue() < 17);
 
-				// display footer
-		 		System.out.println ("");
-				System.out.println ("User: " + userCards.getHandValue() + "\tDealer: " + dealCards.getHandValue());
-				System.out.println ("Cash: " + userCards.getCash());
-				System.out.println ("\tCount: " + userCards.getCount());
-				System.out.println ("");
-				
-				// fix bets
-				System.out.println (userCards.isWinner (dealCards));
-				
-				// resets for new round
-				userCards.reset();
-				dealCards.reset();
+			// display footer
+	 		System.out.println ("");
+			System.out.println ("User: " + userCards.getHandValue() + "\tDealer: " + dealCards.getHandValue());
+			System.out.println ("Cash: " + userCards.getCash());
+			System.out.println ("\tCount: " + userCards.getCount());
+			System.out.println ("");
+			
+			// fix bets
+			System.out.println (userCards.isWinner (dealCards));
+			
+			// resets for new round
+			userCards.reset();
+			dealCards.reset();
+
+			if (shoe.needsShuffle()) {
+				shoe.shuffle();
+				userCards.resetCount();
+			}
 		}
  	}
  }
