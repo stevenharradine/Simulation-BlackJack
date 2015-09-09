@@ -48,4 +48,8 @@ public class Shoe {
 	public boolean hasMore () {
 		return currentCard < shoe.size();
 	}
+
+	public boolean needsShuffle () {
+		return (currentCard * 1.0) / shoe.size() > 0.75;
+	}
 }
