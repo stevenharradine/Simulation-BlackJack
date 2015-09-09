@@ -65,6 +65,10 @@ class Hand {
 	public int getCount () {
 		return count;
 	}
+
+	public void resetCount () {
+		count = 0;
+	}
 	
 	public int getCash () {
 		return cash;
