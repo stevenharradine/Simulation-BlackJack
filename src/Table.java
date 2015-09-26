@@ -1,6 +1,6 @@
 public class Table {
 	private Dealer dealer;
-	private Seat   seats;
+	private Seat[] seats;
 
 	public Table (int number_of_seats) {
 		dealer = new Dealer ();
