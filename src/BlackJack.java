@@ -33,7 +33,8 @@
  			number_of_decks_in_shoe
  		);
 
- 		Player basicPlayer = new Player ();
+ 		int    basicPlayerChips = 100;
+ 		Player basicPlayer      = new Player (basicPlayerChips);
 
  		table.addPlayer (basicPlayer, 0);
 

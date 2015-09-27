@@ -1,8 +1,15 @@
 public class Player {
-  public Player () {
+  private int chips;
+
+  public Player (int chips) {
+    this.chips = chips;
   }
 
   public int getBet () {
-    return 5;
+    int bet = 5;
+
+    this.chips -= bet;
+
+    return bet;
   }
 }
