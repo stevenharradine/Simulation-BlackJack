@@ -1,7 +1,7 @@
 public class Player {
-  private int chips;
+  private Integer chips;
 
-  public Player (int chips) {
+  public Player (Integer chips) {
     this.chips = chips;
   }
 

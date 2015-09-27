@@ -1,10 +1,14 @@
+import java.util.ArrayList;
+
 public class Seat {
-  private Player player;
-  private int    bet;
+  private Player          player;
+  private int             bet;
+  private ArrayList<Card> pocket;
 
 	public Seat () {
-    this.player = null;
-         bet    = 0;
+    player = null;
+    bet    = 0;
+    pocket = new ArrayList<>();
 	}
 
   public void placeBet () {
@@ -29,6 +33,6 @@ public class Seat {
   }
 
   public void addCard (Card card) {
-
+    pocket.add (card);
   }
 }

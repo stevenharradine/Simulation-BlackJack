@@ -10,8 +10,6 @@ public class Table {
 
     for (int i = 0; i < seats.length; i++) {
       seats[i] = new Seat();
-
-      System.out.println (seats[i]);
     }
 	}
 
@@ -33,6 +31,8 @@ public class Table {
         seat.addCard (this.shoe.dealCard());
       }
     }
+
+    dealer.getSeat().addCard (this.shoe.dealCard());
   }
 
   private void placeBets () {
