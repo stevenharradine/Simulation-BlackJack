@@ -30,13 +30,14 @@ public class Table {
   }
 
   private void dealersTurn () {
+    Seat   seat   = dealer.getSeat();
+    Player player = seat.getPlayer();
+    
     do {
-      dealer.getSeat().getPlayer().play(dealer.getSeat());
-
-      String playerOption = dealer.getSeat().getPlayer().play (dealer.getSeat());
+      String playerOption = player.play (seat);
 
       switch (playerOption) {
-        case "hit" : dealer.getSeat().addCard (shoe.dealCard());
+        case "hit" : seat.addCard (shoe.dealCard());
                      break;
         default    : System.out.println ("--" + playerOption);
       }
@@ -45,7 +46,7 @@ public class Table {
         break;
     } while (true);
 
-    System.out.println (dealer.getSeat());
+    System.out.println (seat);
   }
 
   private void playersTurn () {
