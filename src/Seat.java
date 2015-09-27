@@ -28,7 +28,7 @@ public class Seat {
     // add aces
     for (Card card : pocket) {
       if (card.getFace() == "Ace") {
-        if (total + card.getFaceValue() >= 21) {
+        if (total + card.getFaceValue() > 21) {
           total += 1;
         } else {
           total += 11;
