@@ -21,6 +21,7 @@ public class Table {
     placeBets ();
 
     deal ();
+    deal ();
   }
 
   private void deal () {
