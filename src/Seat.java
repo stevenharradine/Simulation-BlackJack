@@ -27,4 +27,8 @@ public class Seat {
   public int getBet () {
     return this.bet;
   }
+
+  public void addCard (Card card) {
+
+  }
 }

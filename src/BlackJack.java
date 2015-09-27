@@ -25,10 +25,10 @@
  		System.out.println ("\t\t~~~~~~~~~~~~~~");
 
 
- 		int    number_of_seats_at_the_table = 5;
- 		int    number_of_decks_in_shoe      = 6;
+ 		int number_of_seats_at_the_table = 5;
+ 		int number_of_decks_in_shoe      = 6;
 
- 		Table  table       = new Table (
+ 		Table table = new Table (
  			number_of_seats_at_the_table,
  			number_of_decks_in_shoe
  		);

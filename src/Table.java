@@ -7,6 +7,12 @@ public class Table {
 		dealer = new Dealer ();
     shoe   = new Shoe (number_of_decks_in_shoe);
 		seats  = new Seat[number_of_seats];
+
+    for (int i = 0; i < seats.length; i++) {
+      seats[i] = new Seat();
+
+      System.out.println (seats[i]);
+    }
 	}
 
   public void addPlayer (Player player, int seatNumber) {
@@ -15,6 +21,18 @@ public class Table {
 
   public void play () {
     placeBets ();
+
+    deal ();
+  }
+
+  private void deal () {
+    for (Seat seat : seats ) {
+      Player player = seat.getPlayer ();
+
+      if (player != null) {
+        seat.addCard (this.shoe.dealCard());
+      }
+    }
   }
 
   private void placeBets () {
