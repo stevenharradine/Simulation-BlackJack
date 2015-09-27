@@ -36,6 +36,8 @@
  		float    basicPlayerChips = 100;
 
  		table.addPlayer (new Player (basicPlayerChips), 0);
+ 		table.addPlayer (new Player (basicPlayerChips), 1);
+ 		table.addPlayer (new Player (basicPlayerChips), 2);
 
  		table.play();
  	}

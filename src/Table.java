@@ -23,8 +23,7 @@ public class Table {
       deal ();
       deal ();
 
-      playersTurn ();
-      dealersTurn ();
+      processTurns ();
 
       payout ();
 
@@ -80,46 +79,31 @@ public class Table {
     }
   }
 
-  private void dealersTurn () {
-    Seat   seat   = dealer.getSeat();
-    Player player = seat.getPlayer();
-
-    do {
-      String playerOption = player.play (seat);
-
-      switch (playerOption) {
-        case "hit" : seat.addCard (shoe.dealCard());
-                     break;
-        default    : System.out.println ("--" + playerOption);
-      }
-
-      if (playerOption == "stand" || playerOption == "bust")
-        break;
-    } while (true);
-
-    System.out.println (seat);
+  private void processTurns () {
+    genericTurn (dealer.getSeat());
+    for (Seat seat : seats ) {
+      genericTurn (seat);
+    }
   }
 
-  private void playersTurn () {
-    for (Seat seat : seats ) {
-      Player player = seat.getPlayer ();
+  private void genericTurn (Seat seat) {
+    Player player = seat.getPlayer();
 
-      if (player != null) {
-        do {
-          String playerOption = player.play (seat);
+    if (player != null) {
+      do {
+        String playerOption = player.play (seat);
 
-          switch (playerOption) {
-            case "hit"  : seat.addCard (shoe.dealCard());
-                          break;
-            default     : System.out.println ("--" + playerOption);
-          }
+        switch (playerOption) {
+          case "hit" : seat.addCard (shoe.dealCard());
+                       break;
+          default    : System.out.println ("--" + playerOption);
+        }
 
-          if (playerOption == "stand" || playerOption == "bust")
-            break;
-        } while (true);
+        if (playerOption == "stand" || playerOption == "bust")
+          break;
+      } while (true);
 
-        System.out.println (seat);
-      }
+      System.out.println (seat);
     }
   }
 
