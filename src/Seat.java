@@ -18,8 +18,22 @@ public class Seat {
   public int getPocketCount () {
     int total = 0;
 
+    // add all cards except aces
     for (Card card : pocket) {
-      total += card.getFaceValue();
+      if (card.getFace() != "Ace") {
+        total += card.getFaceValue();
+      }
+    }
+
+    // add aces
+    for (Card card : pocket) {
+      if (card.getFace() == "Ace") {
+        if (total + card.getFaceValue() >= 21) {
+          total += 1;
+        } else {
+          total += 11;
+        }
+      }
     }
 
     return total;
