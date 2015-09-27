@@ -18,10 +18,27 @@ public class Table {
   }
 
   public void play () {
+    shoe.shuffle ();
+
     placeBets ();
 
     deal ();
     deal ();
+
+    playersTurn ();
+  }
+
+  private void playersTurn () {
+    for (Seat seat : seats ) {
+      Player player = seat.getPlayer ();
+
+      if (player != null) {
+        player.play (
+          seat.getPocket(),
+          seat.getBet()
+        );
+      }
+    }
   }
 
   private void deal () {

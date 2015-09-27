@@ -32,6 +32,10 @@ public class Seat {
     return this.bet;
   }
 
+  public ArrayList<Card> getPocket () {
+    return pocket;
+  }
+
   public void addCard (Card card) {
     pocket.add (card);
   }
