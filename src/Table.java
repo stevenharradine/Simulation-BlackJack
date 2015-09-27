@@ -26,6 +26,26 @@ public class Table {
     deal ();
 
     playersTurn ();
+    dealersTurn ();
+  }
+
+  private void dealersTurn () {
+    do {
+      dealer.getSeat().getPlayer().play(dealer.getSeat());
+
+      String playerOption = dealer.getSeat().getPlayer().play (dealer.getSeat());
+
+      switch (playerOption) {
+        case "hit" : dealer.getSeat().addCard (shoe.dealCard());
+                     break;
+        default    : System.out.println ("--" + playerOption);
+      }
+
+      if (playerOption == "stand" || playerOption == "bust")
+        break;
+    } while (true);
+
+    System.out.println (dealer.getSeat());
   }
 
   private void playersTurn () {
@@ -34,16 +54,10 @@ public class Table {
 
       if (player != null) {
         do {
-          System.out.println (seat.getPocketCount());
-
           String playerOption = player.play (seat);
 
           switch (playerOption) {
             case "hit"  : seat.addCard (shoe.dealCard());
-                          break;
-            case "stand": System.out.println ("Stand");
-                          break;
-            case "bust" : System.out.println ("Bust");
                           break;
             default     : System.out.println ("--" + playerOption);
           }
