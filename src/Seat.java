@@ -15,6 +15,16 @@ public class Seat {
     this.bet = this.player.getBet ();
   }
 
+  public int getPocketCount () {
+    int total = 0;
+
+    for (Card card : pocket) {
+      total += card.getFaceValue();
+    }
+
+    return total;
+  }
+
   public void addPlayer (Player player) {
     this.player = player;
   }

@@ -33,10 +33,27 @@ public class Table {
       Player player = seat.getPlayer ();
 
       if (player != null) {
-        player.play (
-          seat.getPocket(),
-          seat.getBet()
-        );
+        do {
+          System.out.println (seat.getPocketCount());
+
+          String playerOption = player.play (
+            seat.getPocket(),
+            seat.getBet()
+          );
+
+          switch (playerOption) {
+            case "hit"  : seat.addCard (shoe.dealCard());
+                          break;
+            case "stand": System.out.println ("Stand");
+                          break;
+            case "bust" : System.out.println ("Bust");
+                          break;
+            default     : System.out.println ("--" + playerOption);
+          }
+
+          if (playerOption == "stand" || playerOption == "bust")
+            break;
+        } while (true);
       }
     }
   }
@@ -46,11 +63,11 @@ public class Table {
       Player player = seat.getPlayer ();
 
       if (player != null) {
-        seat.addCard (this.shoe.dealCard());
+        seat.addCard (shoe.dealCard());
       }
     }
 
-    dealer.getSeat().addCard (this.shoe.dealCard());
+    dealer.getSeat().addCard (shoe.dealCard());
   }
 
   private void placeBets () {

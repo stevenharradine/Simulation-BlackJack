@@ -24,6 +24,8 @@ public class Player {
 
     if (total < 17) {
       return "hit";
+    } else if (total > 21) {
+      return "bust";
     } else {
       return "stand";
     }
