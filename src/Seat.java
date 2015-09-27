@@ -7,9 +7,14 @@ public class Seat {
 
 	public Seat () {
     player = null;
+
+    reset ();
+	}
+
+  public void reset () {
     bet    = 0;
     pocket = new ArrayList<>();
-	}
+  }
 
   public void placeBet () {
     this.bet = this.player.getBet ();

@@ -4,13 +4,10 @@ public class Table {
 	private Seat[]   seats;
 
 	public Table (int number_of_seats, int number_of_decks_in_shoe) {
-		dealer = new Dealer ();
-    shoe   = new Shoe (number_of_decks_in_shoe);
-		seats  = new Seat[number_of_seats];
+    shoe  = new Shoe (number_of_decks_in_shoe);
+		seats = new Seat[number_of_seats];
 
-    for (int i = 0; i < seats.length; i++) {
-      seats[i] = new Seat();
-    }
+    reset ();
 	}
 
   public void addPlayer (Player player, int seatNumber) {
@@ -20,7 +17,7 @@ public class Table {
   public void play () {
     shoe.shuffle ();
 
-//    do {
+    do {
       placeBets ();
 
       deal ();
@@ -30,7 +27,25 @@ public class Table {
       dealersTurn ();
 
       payout ();
-//    } while (true);
+
+      reset ();
+    } while (true);
+  }
+
+  private void reset () {
+    dealer = new Dealer ();
+
+    for (int i = 0; i < seats.length; i++) {
+      if (seats[i] == null) {
+        seats[i] = new Seat ();
+      } else {
+        seats[i].reset();
+      }
+    }
+
+    if (shoe.needsShuffle()) {
+      shoe.shuffle ();
+    }
   }
 
   private void payout () {
