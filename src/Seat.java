@@ -67,6 +67,8 @@ public class Seat {
   public String toString () {
     String output = "Bet: " + bet + "\n";
 
+    output += "Pocket count: " + getPocketCount() + "\n";
+
     for (Card card : pocket) {
       output += card  + "\n";
     }
