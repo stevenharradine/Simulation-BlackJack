@@ -63,4 +63,14 @@ public class Seat {
   public void addCard (Card card) {
     pocket.add (card);
   }
+
+  public String toString () {
+    String output = "Bet: " + bet + "\n";
+
+    for (Card card : pocket) {
+      output += card  + "\n";
+    }
+
+    return output;
+  }
 }

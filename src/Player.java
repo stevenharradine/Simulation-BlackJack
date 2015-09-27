@@ -15,13 +15,9 @@ public class Player {
     return bet;
   }
 
-  public String play (ArrayList<Card> cards, int bet) {
-    int total = 0;
-
-    for (Card card : cards) {
-      total += card.getFaceValue();
-    }
-
+  public String play (Seat seat) {
+    int total = seat.getPocketCount();
+    
     if (total < 17) {
       return "hit";
     } else if (total > 21) {

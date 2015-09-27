@@ -36,10 +36,7 @@ public class Table {
         do {
           System.out.println (seat.getPocketCount());
 
-          String playerOption = player.play (
-            seat.getPocket(),
-            seat.getBet()
-          );
+          String playerOption = player.play (seat);
 
           switch (playerOption) {
             case "hit"  : seat.addCard (shoe.dealCard());
@@ -54,6 +51,8 @@ public class Table {
           if (playerOption == "stand" || playerOption == "bust")
             break;
         } while (true);
+
+        System.out.println (seat);
       }
     }
   }
