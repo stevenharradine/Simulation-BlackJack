@@ -34,9 +34,8 @@
  		);
 
  		int    basicPlayerChips = 100;
- 		Player basicPlayer      = new Player (basicPlayerChips);
 
- 		table.addPlayer (basicPlayer, 0);
+ 		table.addPlayer (new Player (basicPlayerChips), 0);
 
  		table.play();
  	}
