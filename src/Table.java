@@ -20,19 +20,55 @@ public class Table {
   public void play () {
     shoe.shuffle ();
 
-    placeBets ();
+//    do {
+      placeBets ();
 
-    deal ();
-    deal ();
+      deal ();
+      deal ();
 
-    playersTurn ();
-    dealersTurn ();
+      playersTurn ();
+      dealersTurn ();
+
+      payout ();
+//    } while (true);
+  }
+
+  private void payout () {
+    for (Seat seat : seats ) {
+      Player player = seat.getPlayer ();
+
+      if (player != null) {
+        boolean blackjack   = seat.getPocketCount() == 21 &&
+                              seat.getPocket().size() == 2;
+        boolean standardWin = seat.getPocketCount() <= 21 &&
+                              seat.getPocketCount() > dealer.getSeat().getPocketCount() ||
+                              seat.getPocketCount() <= 21 &&
+                              dealer.getSeat().getPocketCount() > 21;
+        Float winnings_bet_multiplier = 0f;
+
+        if (blackjack) {
+          winnings_bet_multiplier = 2.5f;
+
+          System.out.println ("BlackJack!!! Winner!");
+        } else if (standardWin) {
+          winnings_bet_multiplier = 2f;
+
+          System.out.println ("You Win!");
+        } else {
+          System.out.println ("You Lose.");
+        }
+
+        seat.getPlayer().addChips (seat.getBet() * winnings_bet_multiplier);
+
+        System.out.println (seat.getPlayer().getChips());
+      }
+    }
   }
 
   private void dealersTurn () {
     Seat   seat   = dealer.getSeat();
     Player player = seat.getPlayer();
-    
+
     do {
       String playerOption = player.play (seat);
 

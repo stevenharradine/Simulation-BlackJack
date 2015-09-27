@@ -1,23 +1,30 @@
 import java.util.ArrayList;
 
 public class Player {
-  private Integer chips;
+  private Float chips;
 
-  public Player (Integer chips) {
+  public Player (Float chips) {
     this.chips = chips;
   }
 
   public int getBet () {
     int bet = 5;
 
-    this.chips -= bet;
+    chips -= bet;
 
     return bet;
   }
 
+  public Float getChips () {
+    return chips;
+  }
+  public void addChips (Float chips) {
+    this.chips += chips;
+  }
+
   public String play (Seat seat) {
     int total = seat.getPocketCount();
-    
+
     if (total < 17) {
       return "hit";
     } else if (total > 21) {
