@@ -69,19 +69,13 @@ public class Table {
 
         if (blackjack) {
           winnings_bet_multiplier = 2.5f;
-
-          System.out.println ("BlackJack!!! Winner!");
         } else if (standardWin) {
           winnings_bet_multiplier = 2f;
-
-          System.out.println ("You Win!");
-        } else {
-          System.out.println ("You Lose.");
         }
 
-        seat.getPlayer().addChips (seat.getBet() * winnings_bet_multiplier);
+        System.out.println (player);
 
-        System.out.println (seat.getPlayer().getChips());
+        seat.getPlayer().addChips (seat.getBet() * winnings_bet_multiplier);
       }
     }
   }

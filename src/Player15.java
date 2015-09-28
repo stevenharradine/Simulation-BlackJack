@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
-public class Player17 extends Player {
+public class Player15 extends Player {
   private Float chips;
 
-  public Player17 (Float chips) {
+  public Player15 (Float chips) {
     this.chips = chips;
-    name = "Player 17";
+    name = "Player 15";
   }
 
   public int getBet () {
@@ -26,7 +26,7 @@ public class Player17 extends Player {
   public String play (Seat seat) {
     int total = seat.getPocketCount();
 
-    if (total < 17) {
+    if (total < 15) {
       return "hit";
     } else if (total > 21) {
       return "bust";

@@ -5,6 +5,7 @@ public class Player16 extends Player {
 
   public Player16 (Float chips) {
     this.chips = chips;
+    name = "Player 16";
   }
 
   public int getBet () {
