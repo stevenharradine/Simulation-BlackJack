@@ -3,7 +3,8 @@ public class Dealer {
 
 	public Dealer () {
     seat = new Seat ();
-    seat.addPlayer (new Player (null));
+    Player player = new Player17 (null);
+    seat.addPlayer (player);
 	}
 
   public Seat getSeat () {

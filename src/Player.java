@@ -1,36 +1,6 @@
-import java.util.ArrayList;
-
-public class Player {
-  private Float chips;
-
-  public Player (Float chips) {
-    this.chips = chips;
-  }
-
-  public int getBet () {
-    int bet = 5;
-
-    chips -= bet;
-
-    return bet;
-  }
-
-  public Float getChips () {
-    return chips;
-  }
-  public void addChips (Float chips) {
-    this.chips += chips;
-  }
-
-  public String play (Seat seat) {
-    int total = seat.getPocketCount();
-
-    if (total < 17) {
-      return "hit";
-    } else if (total > 21) {
-      return "bust";
-    } else {
-      return "stand";
-    }
-  }
+public abstract class Player {
+  abstract String play (Seat seat);
+  abstract int getBet ();
+  abstract Float getChips ();
+  abstract void addChips (Float chips);
 }

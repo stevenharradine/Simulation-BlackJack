@@ -25,8 +25,8 @@
  		System.out.println ("\t\t~~~~~~~~~~~~~~");
 
 
- 		Integer number_of_hands_to_simulate  = 100;
- 		int     number_of_seats_at_the_table = 5;
+ 		Integer number_of_hands_to_simulate  = 100000;
+ 		int     number_of_seats_at_the_table = 7;
  		int     number_of_decks_in_shoe      = 6;
  		float   playerChips                  = 100;
 
@@ -35,9 +35,12 @@
  			number_of_decks_in_shoe
  		);
 
- 		table.addPlayer (new Player (playerChips), 0);
- 		table.addPlayer (new Player (playerChips), 1);
- 		table.addPlayer (new Player (playerChips), 2);
+ 		table.addPlayer (new Player18 (playerChips), 0);
+ 		table.addPlayer (new Player17 (playerChips), 1);
+ 		table.addPlayer (new Player16 (playerChips), 2);
+ 		table.addPlayer (new Player18 (playerChips), 3);
+ 		table.addPlayer (new Player17 (playerChips), 4);
+ 		table.addPlayer (new Player16 (playerChips), 5);
 
  		table.play(number_of_hands_to_simulate);
  	}
