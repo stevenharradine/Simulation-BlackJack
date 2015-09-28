@@ -14,7 +14,9 @@ public class Table {
     seats[seatNumber].addPlayer (player);
   }
 
-  public void play () {
+  public void play (Integer number_of_hands) {
+    Integer hand_counter = 0;
+
     shoe.shuffle ();
 
     do {
@@ -28,7 +30,12 @@ public class Table {
       payout ();
 
       reset ();
-    } while (true);
+      hand_counter++;
+    } while (
+      number_of_hands == null || 
+      number_of_hands != null &&
+      hand_counter <= number_of_hands
+    );
   }
 
   private void reset () {
