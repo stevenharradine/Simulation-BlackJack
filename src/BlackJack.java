@@ -28,17 +28,16 @@
  		Integer number_of_hands_to_simulate  = 100;
  		int     number_of_seats_at_the_table = 5;
  		int     number_of_decks_in_shoe      = 6;
+ 		float   playerChips                  = 100;
 
  		Table table = new Table (
  			number_of_seats_at_the_table,
  			number_of_decks_in_shoe
  		);
 
- 		float    basicPlayerChips = 100;
-
- 		table.addPlayer (new Player (basicPlayerChips), 0);
- 		table.addPlayer (new Player (basicPlayerChips), 1);
- 		table.addPlayer (new Player (basicPlayerChips), 2);
+ 		table.addPlayer (new Player (playerChips), 0);
+ 		table.addPlayer (new Player (playerChips), 1);
+ 		table.addPlayer (new Player (playerChips), 2);
 
  		table.play(number_of_hands_to_simulate);
  	}
