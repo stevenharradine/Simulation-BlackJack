@@ -45,7 +45,7 @@ public class Table {
       Seat seat = seats[i];
       
       if (seat == null) {
-        seat = new Seat ();
+        seats[i] = new Seat ();
       } else {
         seat.reset();
       }
