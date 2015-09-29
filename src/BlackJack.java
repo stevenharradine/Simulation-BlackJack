@@ -25,7 +25,7 @@
  		System.out.println ("\t\t~~~~~~~~~~~~~~");
 
 
- 		Integer number_of_hands_to_simulate  = 1000000;
+ 		Integer number_of_hands_to_simulate  = 1000;
  		int     number_of_seats_at_the_table = 7;
  		int     number_of_decks_in_shoe      = 6;
  		float   playerChips                  = 100;
