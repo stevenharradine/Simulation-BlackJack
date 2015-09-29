@@ -42,10 +42,12 @@ public class Table {
     dealer = new Dealer ();
 
     for (int i = 0; i < seats.length; i++) {
-      if (seats[i] == null) {
-        seats[i] = new Seat ();
+      Seat seat = seats[i];
+      
+      if (seat == null) {
+        seat = new Seat ();
       } else {
-        seats[i].reset();
+        seat.reset();
       }
     }
 
