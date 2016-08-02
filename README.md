@@ -24,6 +24,5 @@ nano src/configure.java
 ## cleanup (optional)
 WARNING: this preforms an `rm -rf bin/` please review the code and use at own risk.
 ```
-cd build
-java BlackJack
+./cleanup.sh
 ```
