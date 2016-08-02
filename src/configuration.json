@@ -1,0 +1,6 @@
+{
+  "number_of_hands_to_simulate"  : 1,
+  "number_of_seats_at_the_table" : 7,
+  "number_of_decks_in_shoe"      : 6,
+  "playerChips"                  : 50
+}

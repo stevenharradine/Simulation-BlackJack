@@ -14,34 +14,53 @@
  *               number of players
  *
  */
- 
- import java.util.*;
- 
- public class BlackJack {
- 	public static void main (String[] args) {
- 		Scanner sc = new Scanner (System.in);	// input stream
- 		
- 		System.out.println ("\t\tBlack Jack Sim");
- 		System.out.println ("\t\t~~~~~~~~~~~~~~");
+import java.util.*;
+import java.io.FileReader;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
- 		Integer number_of_hands_to_simulate  = 1000;
- 		int     number_of_seats_at_the_table = 7;
- 		int     number_of_decks_in_shoe      = 6;
- 		float   playerChips                  = 100;
+public class BlackJack {
+	public static void main (String[] args) {
+		Scanner sc = new Scanner (System.in);	// input stream
+		JSONParser parser = new JSONParser();
 
- 		Table table = new Table (
- 			number_of_seats_at_the_table,
- 			number_of_decks_in_shoe
- 		);
+		// Configuration with default vaules
+		// this should be overwritten with the configuration.json file
+		Integer number_of_hands_to_simulate  = 1;
+		int     number_of_seats_at_the_table = 1;
+		int     number_of_decks_in_shoe      = 1;
+		float   playerChips                  = 10;
+		
+		System.out.println ("\t\tBlack Jack Sim");
+		System.out.println ("\t\t~~~~~~~~~~~~~~");
 
- 		table.addPlayer (new Player13 (playerChips), 0);
- 		table.addPlayer (new Player14 (playerChips), 1);
- 		table.addPlayer (new Player15 (playerChips), 2);
- 		table.addPlayer (new Player16 (playerChips), 3);
- 		table.addPlayer (new Player17 (playerChips), 4);
- 		table.addPlayer (new Player18 (playerChips), 5);
+		try {
+			Object obj = parser.parse(new FileReader("configuration.json"));
+			JSONObject jsonObject = (JSONObject) obj;
 
- 		table.play(number_of_hands_to_simulate);
- 	}
- }
+			number_of_hands_to_simulate = Integer.parseInt (jsonObject.get("number_of_hands_to_simulate").toString());
+			number_of_seats_at_the_table = Integer.parseInt (jsonObject.get("number_of_seats_at_the_table").toString());
+			number_of_decks_in_shoe = Integer.parseInt (jsonObject.get("number_of_decks_in_shoe").toString());
+			playerChips = Float.parseFloat (jsonObject.get("playerChips").toString());
+		} catch (Exception exception) {
+			System.out.println ("Error reading configuration" + exception.getMessage());
+		}
+
+		Table table = new Table (
+			number_of_seats_at_the_table,
+			number_of_decks_in_shoe
+		);
+
+		table.addPlayer (new Player13 (playerChips), 0);
+		table.addPlayer (new Player14 (playerChips), 1);
+		table.addPlayer (new Player15 (playerChips), 2);
+		table.addPlayer (new Player16 (playerChips), 3);
+		table.addPlayer (new Player17 (playerChips), 4);
+		table.addPlayer (new Player18 (playerChips), 5);
+
+		table.play(number_of_hands_to_simulate);
+	}
+}

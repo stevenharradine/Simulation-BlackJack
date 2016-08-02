@@ -11,12 +11,18 @@ sudo apt-get install openjdk-9-jdk
 git clone https://github.com/stevenharradine/Simulation-BlackJack.git
 ```
 
-## build the code
+## configure simulation
 ```
-./build.sh
+nano src/configure.java
 ```
 
-## run simulation
+## build and run
+```
+./build.sh && ./run.sh
+```
+
+## cleanup (optional)
+WARNING: this preforms an `rm -rf bin/` please review the code and use at own risk.
 ```
 cd build
 java BlackJack

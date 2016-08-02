@@ -1,6 +1,2 @@
-cd src/
-javac *.java
-cd ..
-rm -rf build/
-mkdir build
-mv src/*.class build/
+javac -classpath lib/json-simple-1.1.1.jar -d bin/ src/*.java
+cp src/*.json bin/
