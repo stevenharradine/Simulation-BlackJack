@@ -3,7 +3,6 @@ public abstract class Table {
 	protected Shoe     shoe;
 	protected Seat[]   seats;
 
-  abstract void play (Integer number_of_hands);
   abstract void payout ();
   abstract void processTurns ();
   abstract void genericTurn (Seat seat);
@@ -19,6 +18,30 @@ public abstract class Table {
 
   public void addPlayer (Player player, int seatNumber) {
     seats[seatNumber].addPlayer (player);
+  }
+
+  public void play (Integer number_of_hands) {
+    Integer hand_counter = 0;
+
+    shoe.shuffle ();
+
+    do {
+      placeBets ();
+
+      deal ();
+      deal ();
+
+      processTurns ();
+
+      payout ();
+
+      reset ();
+      hand_counter++;
+    } while (
+      number_of_hands == null ||
+      number_of_hands != null &&
+      hand_counter < number_of_hands
+    );
   }
 
   protected void reset () {

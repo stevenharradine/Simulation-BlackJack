@@ -3,30 +3,6 @@ public class TableBasic extends Table {
     super (number_of_seats, number_of_decks_in_shoe);
 	}
 
-  public void play (Integer number_of_hands) {
-    Integer hand_counter = 0;
-
-    shoe.shuffle ();
-
-    do {
-      placeBets ();
-
-      deal ();
-      deal ();
-
-      processTurns ();
-
-      payout ();
-
-      super.reset ();
-      hand_counter++;
-    } while (
-      number_of_hands == null || 
-      number_of_hands != null &&
-      hand_counter < number_of_hands
-    );
-  }
-
   protected void payout () {
     for (Seat seat : seats ) {
       Player player = seat.getPlayer ();
