@@ -1,3 +1,6 @@
+/*
+ * Basic game of blackjack.  No splitting, no insurance, keeps it simple.
+ */
 public class TableBasic extends Table {
 	public TableBasic (int number_of_seats, int number_of_decks_in_shoe) {
     super (number_of_seats, number_of_decks_in_shoe);
