@@ -23,7 +23,7 @@ public class TableBasic extends Table {
     } while (
       number_of_hands == null || 
       number_of_hands != null &&
-      hand_counter <= number_of_hands
+      hand_counter < number_of_hands
     );
   }
 
