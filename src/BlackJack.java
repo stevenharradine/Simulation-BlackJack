@@ -49,7 +49,7 @@ public class BlackJack {
 			System.out.println ("Error reading configuration" + exception.getMessage());
 		}
 
-		Table table = new Table (
+		TableBasic table = new TableBasic (
 			number_of_seats_at_the_table,
 			number_of_decks_in_shoe
 		);
